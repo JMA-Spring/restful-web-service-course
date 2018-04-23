@@ -5,14 +5,19 @@ import java.util.Date;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(description="All details about user")	// swager api 
 public class User {
 	private Integer id;
 	
 	@Size(min=2, message="name should have at least two characters, :)")
+	@ApiModelProperty(notes="name should have two characters")  // swager api 
 	private String name;
 	
 	@Past
+	@ApiModelProperty(notes="fecha valida :)")	// swager api 
 	private Date bithDate;
 	
 	protected User() {
