@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import exception.ExceptionResponse;
+import com.jesus.rest.webservice.exception.ExceptionResponse;
 
 @RestController
 public class UserResource {

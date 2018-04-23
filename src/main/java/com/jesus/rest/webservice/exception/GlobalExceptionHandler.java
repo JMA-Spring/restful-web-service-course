@@ -1,4 +1,4 @@
-package exception;
+package com.jesus.rest.webservice.exception;
 
 import java.util.Date;
 
