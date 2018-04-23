@@ -9,7 +9,6 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 
 @SpringBootApplication
-//@ImportResource({"classpath:/spring/spring.xml"})
 public class RestfulWebServiceApplication {
 
 	public static void main(String[] args) {
@@ -22,7 +21,6 @@ public class RestfulWebServiceApplication {
 		localeResolver.setDefaultLocale(Locale.US);		// if nothing in the header, we specify the default
 		return localeResolver;
 	}
-	
 	//in application.properties we add: spring.messages.basename=messages
 	//in order to specify the basename of the files that contains the messages in different languages
 	

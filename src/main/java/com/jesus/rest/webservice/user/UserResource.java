@@ -75,12 +75,4 @@ public class UserResource {
 		if (user == null)
 			throw new UserNotFoundException("hola-"+id);
 	}
-
-	
-	/*@ExceptionHandler(UserNotFoundException.class)
-	public final ResponseEntity<Object> handleUserNotExceptions(UserNotFoundException ex, WebRequest request){
-		 ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), "hi");
-		 
-		 return new ResponseEntity<>(exceptionResponse,HttpStatus.NOT_FOUND);
-	}*/
 }
