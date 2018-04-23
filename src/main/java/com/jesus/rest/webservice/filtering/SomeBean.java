@@ -1,9 +1,13 @@
 package com.jesus.rest.webservice.filtering;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 // Static filtering
-@JsonIgnoreProperties(value={"value1","value4"})	// ignore in the response the property called value 1
+//@JsonIgnoreProperties(value={"value1","value4"})	// ignore in the response the property called value 1
+
+//Dyanmic filtering
+@JsonFilter("someBeanFilter")	// its is needed to define the filter that applies to the bean 
 public class SomeBean {
 	private String value1;
 	private String value2;
