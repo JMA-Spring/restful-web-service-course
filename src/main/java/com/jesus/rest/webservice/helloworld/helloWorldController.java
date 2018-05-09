@@ -21,7 +21,7 @@ public class helloWorldController {
 	@RequestMapping(method = RequestMethod.GET, path = "/hello-world")
 	// @GetMapping(path = "hello-world") // es lo mismo pero pone directamente el get
 	public String helloWorld() {
-		return "Hello world";
+		return "Hello world jajaja";
 	}
 
 	@GetMapping(path = "hello-world-bean") // es lo mismo pero pone directamente el get
