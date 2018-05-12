@@ -50,7 +50,6 @@ public class VersioningController {
 //	public PersonV2 personvProduces2() {
 //		return new PersonV2(new Name("Jesus","Monroy"));
 //	}
-	
-	
+
 	
 }
