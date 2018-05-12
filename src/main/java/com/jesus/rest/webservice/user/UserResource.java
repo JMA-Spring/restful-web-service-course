@@ -1,10 +1,6 @@
 package com.jesus.rest.webservice.user;
 
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
-
 import java.net.URI;
-import java.nio.file.attribute.UserPrincipalNotFoundException;
-import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -13,12 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.URIEditor;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
