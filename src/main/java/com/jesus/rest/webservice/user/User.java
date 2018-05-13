@@ -1,20 +1,28 @@
 package com.jesus.rest.webservice.user;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @ApiModel(description="All details about user")	// swager api
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @SequenceGenerator(name="user", initialValue=10, allocationSize=100)
 public class User {
 	
@@ -30,32 +38,16 @@ public class User {
 	@ApiModelProperty(notes="fecha valida :)")	// swager api 
 	private Date bithDate;
 	
-	protected User() {
-		
+	
+	@OneToMany(mappedBy="user")
+	private List<Post> posts;
+
+	public User(Integer id,  String name,Date bithDate) {
+		this.id = id;
+		this.name = name;
+		this.bithDate = bithDate;
 	}
 	
-	public User(Integer id, String name, Date bithDate) {
-		this.id = id;
-		this.name = name;
-		this.bithDate = bithDate;
-	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Date getBithDate() {
-		return bithDate;
-	}
-	public void setBithDate(Date bithDate) {
-		this.bithDate = bithDate;
-	}
+	
 
 }

@@ -30,6 +30,9 @@ public class UserResourceJPA {
 
 	@Autowired
 	private UserRepositoryJPA service;
+	
+	@Autowired
+	private PostRepositoryJPA postService;
 
 	@RequestMapping(path = "/jpa/users", method = RequestMethod.GET)
 	public List<User> retrieveAllUsers() {
@@ -68,5 +71,37 @@ public class UserResourceJPA {
 		service.deleteById(id);
 //		if (user == null)
 //			throw new UserNotFoundException("hola-"+id);
+	}
+	
+	
+	@RequestMapping(path = "/jpa/users/{id}/posts", method = RequestMethod.GET)
+	public List<Post> retrieveAllUsersAndPosts(@PathVariable Integer id) {
+		Optional<User> user = service.findById(id);
+		
+		if (!user.isPresent())
+			throw new UserNotFoundException("id-"+id);	
+		
+		return user.get().getPosts();
+	}
+	
+	
+	@PostMapping("/jpa/users/{id}/posts")
+	public ResponseEntity createUserPost(@PathVariable Integer id, @Valid @RequestBody Post post) {	
+		Optional<User> user = service.findById(id);
+		
+		if (!user.isPresent())
+			throw new UserNotFoundException("id-"+id);	
+		
+		post.setUser(user.get());
+		
+		
+		postService.save(post);
+		
+		URI location = ServletUriComponentsBuilder			// create the uri
+				.fromCurrentRequest()								// from the current url or request
+				.path("/{id}")										// we add /{id} that is like the path variable
+				.buildAndExpand(post.getId()).toUri();			// we specify what is the path variable and convert to uri
+				
+		return ResponseEntity.created(location).build();
 	}
 }
