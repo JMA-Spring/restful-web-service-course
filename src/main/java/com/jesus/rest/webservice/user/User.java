@@ -2,14 +2,21 @@ package com.jesus.rest.webservice.user;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description="All details about user")	// swager api 
+@ApiModel(description="All details about user")	// swager api
+@Entity
 public class User {
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	@Size(min=2, message="name should have at least two characters, :)")
